@@ -2,19 +2,47 @@
 
 ## Prerequisites
 
-- [Git - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- You can use command line\
+  [Command line crash course - Learn web development | MDN](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line)
+- Git is installed.\
+  [Git - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 ## Getting started
 
-First, clone the `libcs50` git repository and build:
+Before starting, make sure that you are in the project directory containing [test.c](./test.c) (or some C code to compile).
+
+First, clone the `libcs50` git repository:
 
 ```sh
 git clone https://github.com/cs50/libcs50.git
+```
+
+Then, your project directory will be like (ommitted unnecessary ones):
+
+```console
+$ tree
+.
+├── README.md
+├── build.sh
+├── libcs50
+│   ├── LICENSE
+│   ├── Makefile
+│   ├── README.md
+│   ├── src
+│   │   ├── cs50.c
+│   │   └── cs50.h
+│   └── tests
+└── test.c
+```
+
+`cd` into the cloned directory (`libcs50`) and build:
+
+```sh
 cd libcs50
 make
 ```
 
-Your build directory will then look like this:
+Then, your build directory will be like:
 
 ```console
 $ cd build
