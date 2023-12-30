@@ -1,8 +1,12 @@
 # CS50 Minimal Setup for macOS and Linux
 
+## Prerequisites
+
+- [Git - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+
 ## Getting Started
 
-First, clone git repository and build:
+First, clone the git repository and build:
 
 ```sh
 git clone https://github.com/cs50/libcs50.git
@@ -13,8 +17,8 @@ make
 Your build directory will then look like this:
 
 ```console
- $ cd build
- $ tree
+$ cd build
+$ tree
 .
 ├── include
 │   └── cs50.h
@@ -28,12 +32,28 @@ Your build directory will then look like this:
 
 To build a C program, you need `cs50.h` and either `libcs50-11.0.2.dylib` (for Dynamic Linking) or `libcs50.a` (for Static Linking).
 
-## Option 1. Using Dynamic Linking
+## Option 1. Using Flags to Link Libraries
+
+Use the following flags in your compile command:
+
+- `-I` for include files.
+- `-L` for library files.
+- `-l` for library name.
+
+Build `test.c` as follows:
+
+```sh
+cc -o test test.c -I./libcs50/build/include -L./libcs50/build/lib -lcs50
+```
+
+For an enhanced version, see [Build Script](./build.sh).
+
+## Option 2. Using Dynamic Linking
 
 Place `libcs50-11.0.2.dylib` in your CS50 project directory. The contents of the project directory will look like:
 
 ```console
- $ ls
+$ ls
 cs50.h        test.c        libcs50-11.0.2.dylib
 ```
 
@@ -43,12 +63,12 @@ Build `test.c` as follows:
 cc -o test test.c -lcs50
 ```
 
-## Option 2. Using Static Linking
+## Option 3. Using Static Linking
 
 Place `libcs50.a` in your CS50 project directory. The contents of the project directory will be:
 
 ```console
- $ ls
+$ ls
 cs50.h        test.c        libcs50.a
 ```
 
@@ -56,6 +76,14 @@ Build `test.c` as follows:
 
 ```sh
 cc -o test test.c libcs50.a
+```
+
+## Running The Program
+
+After building, you can run the `test` binary file with:
+
+```sh
+./test
 ```
 
 ## Why?
