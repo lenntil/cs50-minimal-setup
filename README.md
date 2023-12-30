@@ -1,8 +1,8 @@
 # CS50 Minimal Setup for macOS and Linux
 
 ## Prerequisites
-
-- You can use command line\
+This guide assumes that:
+- You can use command line.\
   [Command line crash course - Learn web development | MDN](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line)
 - Git is installed.\
   [Git - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
@@ -60,23 +60,7 @@ $ tree
 
 To build a C program, you need `cs50.h` and either `libcs50-11.0.2.dylib` (for Dynamic Linking) or `libcs50.a` (for Static Linking).
 
-## Option 1. Using flags to link libraries
-
-Use the following flags in your compile command:
-
-- `-I` for include files.
-- `-L` for library files.
-- `-l` for library name.
-
-Build `test.c` as follows:
-
-```sh
-cc -o test test.c -I./libcs50/build/include -L./libcs50/build/lib -lcs50
-```
-
-For an enhanced version, see [Build Script](./build.sh).
-
-## Option 2. Using dynamic linking
+## Option 1. Dynamic linking
 
 Place `libcs50-11.0.2.dylib` in your CS50 project directory. The contents of the project directory will look like:
 
@@ -91,7 +75,7 @@ Build `test.c` as follows:
 cc -o test test.c -lcs50
 ```
 
-## Option 3. Using static linking
+## Option 2-1. Static linking
 
 Place `libcs50.a` in your CS50 project directory. The contents of the project directory will be:
 
@@ -105,6 +89,20 @@ Build `test.c` as follows:
 ```sh
 cc -o test test.c libcs50.a
 ```
+
+## Option 2-2. Static linking - Using flags to link libraries
+
+Use the following flags in your compile command:
+
+- `-I` for include path.
+
+Build `test.c` as follows:
+
+```sh
+cc -o test test.c -I./libcs50/build/include ./libcs50/build/lib/libcs50.a
+```
+
+For an enhanced version, see [Build Script](./build.sh).
 
 ## Running the program
 
@@ -123,8 +121,10 @@ After building, you can run the `test` binary file with:
 ## References
 
 - [cs50/libcs50: This is CS50's Library for C.](https://github.com/cs50/libcs50)
+- [CS50 Library for C — CS50 Docs](https://cs50.readthedocs.io/libraries/cs50/c/)
 
 ## See also
 
 - [Mac make install error: No such file or directory · Issue #142 · cs50/libcs50](https://github.com/cs50/libcs50/issues/142)
 - [How to use cs50.h in my local VSCode environment? · Issue #189 · cs50/libcs50](https://github.com/cs50/libcs50/issues/189)
+- [CS50 Manual Pages](https://manual.cs50.io/)
