@@ -1,5 +1,7 @@
 #!/bin/bash
-#	Usage: "./build.sh <filename_without_extension>"
+# Usage: "./build.sh <filename_without_extension>"
+# Run with: "bin/<filename_without_extension>"
+# Example: `./build.sh test && bin/test`
 
 # Variables for paths
 INCLUDE_PATH="./libcs50/build/include"
