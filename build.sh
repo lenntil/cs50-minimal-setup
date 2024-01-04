@@ -1,6 +1,7 @@
 #!/bin/bash
-# Usage: "./build.sh <filename_without_extension>"
-# Run with: "bin/<filename_without_extension>"
+# Before start, run `chmod +x ./build.sh` to make the script executable
+# Usage: `./build.sh <filename_without_extension>`
+# Run with: `bin/<filename_without_extension>`
 # Example: `./build.sh test && bin/test`
 
 # Variables for paths
@@ -12,3 +13,4 @@ OUTPUT_FILE="bin/$1"
 # Create bin directory if it doesn't exist
 mkdir -p bin
 cc -o "$OUTPUT_FILE" "$SOURCE_FILE" -I"$INCLUDE_PATH" "$LIBRARY_FILE"
+
